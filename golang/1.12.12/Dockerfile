@@ -1,4 +1,9 @@
-FROM golang:1.12.12
+FROM golang:1.13.4
 
 WORKDIR /go/src/k8s.io
-RUN git clone https://github.com/kubernetes/kubernetes.git
+RUN apt-get update \
+    && apt-get install -y rsync \
+    && git clone https://github.com/kubernetes/kubernetes.git \
+    && apt-get clean
+    
+WORKDIR /go/src/k8s.io/kubernetes
