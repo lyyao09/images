@@ -5,4 +5,5 @@ RUN mkdir -p /go/src/github.com/projectcalico/ && \
     cd node && \
     git checkout d296a4e118245d0c2e038b42cbf016bda676c58d && \
     cd cmd/calico-node/ && \
-    make fv
+    curl https://glide.sh/get | shv && \
+    glide install
